@@ -53,7 +53,7 @@ GRANT SELECT on SCHEMA _SYS_STATISTICS to <username>;
 - Launch HANA Cockpit and add target system(s): 
 
 ```bash
-https://<hostname>:3<instance number>32
+https://<hostname>:51029
 ```
 
 ## Todo
