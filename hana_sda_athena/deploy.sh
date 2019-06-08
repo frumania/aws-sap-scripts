@@ -1,27 +1,25 @@
 # !/bin/bash
-# PARAM1: s3 Bucketname e.g. s3://aws-athena-hana-int/logs/
-# PARAM2: AWS Region e.g. eu-central-1
-# Defaults <sid> = HDB, <sid>adm = hdbadm
-# Athena ODBC Driver version 1.0.5
+echo "Start"
 
-sudo -i
+echo "Install unixODBC"
 
-zypper install -y unixODBC
+sudo zypper install -y unixODBC
 
-mkdir AthenaODBC
+echo "Install AthenaODBC"
+
+sudo mkdir AthenaODBC
 
 cd AthenaODBC
 
-wget https://s3.amazonaws.com/athena-downloads/drivers/ODBC/SimbaAthenaODBC_1.0.5/Linux/simbaathena-1.0.5.1006-1.x86_64.rpm
+sudo wget https://s3.amazonaws.com/athena-downloads/drivers/ODBC/SimbaAthenaODBC_1.0.5/Linux/simbaathena-1.0.5.1006-1.x86_64.rpm
 
-zypper --no-gpg-checks install -y simbaathena-1.0.5.1006-1.x86_64.rpm
+sudo zypper --no-gpg-checks install -y simbaathena-1.0.5.1006-1.x86_64.rpm
 
-
-su hdbadm
+echo "Create .odbc.ini"
 
 cd /usr/sap/HDB/home
 
-cat > .odbc.ini <<EOF
+sudo cat > .odbc.ini <<EOF
 [Data Sources]
 MyDSN=Simba Athena ODBC Driver 64-bit
 [MyDSN]
@@ -31,21 +29,28 @@ AwsRegion=eu-central-1
 S3OutputLocation=s3://aws-athena-hana-int/logs/
 EOF
 
-cat > .customer.sh <<EOF
+sudo chown hdbadm:sapsys .odbc.ini
+
+echo "Create .customer.sh"
+
+sudo cat > .customer.sh <<EOF
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/simba/athenaodbc/lib/64/
 export ODBCINI=$HOME/.odbc.ini
 EOF
 
-chmod 700 .customer.sh
+sudo chmod 700 .customer.sh
 
-# Test
-isql MyDSN -c -d
+sudo chown hdbadm:sapsys .customer.sh
 
-exit
+echo "Test"
+
+sudo -u hdbadm isql MyDSN -c -d
+
+echo "Create Property_Athena.ini"
 
 cd /usr/sap/HDB/SYS/exe/hdb/config
 
-cat > Property_Athena.ini <<EOF
+sudo cat > Property_Athena.ini <<EOF
 CAP_SUBQUERY : true
 CAP_ORDERBY : true
 CAP_JOINS : true
@@ -101,6 +106,8 @@ TYPE_NVARCHAR : STRING
 PROP_USE_UNIX_DRIVER_MANAGER : true
 EOF
 
-chmod 444 Property_Athena.ini
+sudo chmod 444 Property_Athena.ini
 
-chown hdbadm:sapsys Property_Athena.ini
+sudo chown hdbadm:sapsys Property_Athena.ini
+
+echo "ALL DONE"

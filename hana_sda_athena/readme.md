@@ -1,4 +1,3 @@
-
 # Overview
 
 Automatically configure SLES OS to allow AWS Athena as remote data source for SAP HANA. Based on
@@ -16,7 +15,7 @@ https://aws.amazon.com/de/blogs/awsforsap/run-federated-queries-to-an-aws-data-l
 ### Manually:
 
 ```bash
-$ deploy.sh -bucket s3://aws-athena-hana-int/logs/ -region eu-central-1
+$ ./deploy.sh -bucket s3://aws-athena-hana-int/logs/ -region eu-central-1
 ```
 
 ### Via AWS Systems Manager (SSM):
