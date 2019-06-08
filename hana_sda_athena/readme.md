@@ -16,14 +16,21 @@ https://aws.amazon.com/de/blogs/awsforsap/run-federated-queries-to-an-aws-data-l
 
 ```bash
 $ chmod 700 deploy.sh
+$ ./deploy.sh s3://<bucket>/ <region>
+```
+
+e.g.
+
+```bash
 $ ./deploy.sh s3://aws-athena-hana-int/logs/ eu-central-1
 ```
+
 
 ### Via AWS Systems Manager (SSM):
 
 1) Choose 'AWS-RunRemoteScript'
 2) Choose Source Type "GitHub"
-3) Choose Command Line "deploy.sh s3://aws-athena-hana-int/logs/ eu-central-1"
+3) Choose Command Line "deploy.sh s3://<bucket>/ <region>"
 
 ```json
 {
