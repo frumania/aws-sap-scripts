@@ -6,11 +6,13 @@ https://help.sap.com/viewer/df02d156db744412ad1f9e887aba68ad/2.10.0.0/en-US/b472
 ## Prerequisites:
 
 - SLES OS
-- S3 bucket with downloaded software (via SAP Support Launchpad), as seen below:
+- S3 bucket with downloaded software (via SAP Support Launchpad), as seen below (plz rename accordingly!):
 
 ![image](software.jpg)
 
 ## Deployment
+
+Can take up to 30min to complete!
 
 ### Manually:
 
@@ -22,7 +24,6 @@ $ ./deploy.sh s3://<bucket>/ <password>
 e.g.
 
 ```bash
-$ chmod 700 deploy.sh
 $ ./deploy.sh s3://sap-sources/HANA_CLIENT/HANA_COCKPIT/ MyHanaCP123#
 ```
 
@@ -43,7 +44,7 @@ $ ./deploy.sh s3://sap-sources/HANA_CLIENT/HANA_COCKPIT/ MyHanaCP123#
 
 ## Post-Deployment steps
 
-- Create HANA Role
+- Create specific user inside HANA system to be managed from the cockpit
 ```sql
 CREATE USER <username> PASSWORD <password> NO FORCE_FIRST_PASSWORD_CHANGE;
 GRANT CATALOG READ to <username>;

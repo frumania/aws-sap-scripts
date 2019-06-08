@@ -14,7 +14,7 @@ aws s3 sync $BUCKET /usr/sap/tmp_hana_cockpit
 
 echo "Extract SAR"
 
-sudo ./SAPCAR.EXE -xvf "SAPHANACOCKPIT10_6-70002299.SAR"
+sudo ./SAPCAR.EXE -xvf "SAPHANACOCKPIT.SAR"
 
 sudo chmod 700 hdblcm.sh
 
