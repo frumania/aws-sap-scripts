@@ -1,8 +1,5 @@
 # !/bin/bash
-# PARAM1: s3 Bucketname e.g. s3://aws-athena-hana-int/logs/
-# PARAM2: AWS Region e.g. eu-central-1
-# Defaults <sid> = HDB, <sid>adm = hdbadm
-# Athena ODBC Driver version 1.0.5
+echo "Printing text with newline"
 
 sudo -i
 
