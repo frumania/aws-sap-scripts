@@ -44,13 +44,13 @@ $ ./deploy.sh s3://sap-sources/HANA_CLIENT/HANA_COCKPIT/ MyHanaCP123#
 
 ## Post-Deployment steps
 
-- Create specific user inside HANA system to be managed from the cockpit
+- (Optional) Create specific user inside target HANA system to be managed from the cockpit
 ```sql
 CREATE USER <username> PASSWORD <password> NO FORCE_FIRST_PASSWORD_CHANGE;
 GRANT CATALOG READ to <username>;
 GRANT SELECT on SCHEMA _SYS_STATISTICS to <username>;
 ```
-- Launch HANA Cockpit: 
+- Launch HANA Cockpit and add target system(s): 
 
 ```bash
 https://<hostname>:3<instance number>32
