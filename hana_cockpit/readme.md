@@ -49,7 +49,9 @@ CREATE USER <username> PASSWORD <password> NO FORCE_FIRST_PASSWORD_CHANGE;
 GRANT CATALOG READ to <username>;
 GRANT SELECT on SCHEMA _SYS_STATISTICS to <username>;
 ```
-- Launch HANA Cockpit: https://<hostname>:3<instance number>32
+- Launch HANA Cockpit: 
+
+> https://<hostname>:3<instance number>32
 
 ## Todo
 
