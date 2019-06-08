@@ -1,5 +1,7 @@
 # !/bin/bash
-echo "Start"
+echo "START"
+BUCKET=$1
+REGION=$2
 
 echo "Install unixODBC"
 
@@ -44,7 +46,7 @@ sudo chmod 700 .customer.sh
 
 sudo chown hdbadm:sapsys .customer.sh
 
-echo "Test"
+echo "Test Connection"
 
 sudo -u hdbadm isql MyDSN -c -d
 quit

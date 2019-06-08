@@ -15,23 +15,29 @@ https://aws.amazon.com/de/blogs/awsforsap/run-federated-queries-to-an-aws-data-l
 ### Manually:
 
 ```bash
-$ ./deploy.sh -bucket s3://aws-athena-hana-int/logs/ -region eu-central-1
+$ chmod 700 deploy.sh
+$ ./deploy.sh s3://aws-athena-hana-int/logs/ eu-central-1
 ```
 
 ### Via AWS Systems Manager (SSM):
 
+1) Choose 'AWS-RunRemoteScript'
+2) Choose Source Type "GitHub"
+3) Choose Command Line "deploy.sh s3://aws-athena-hana-int/logs/ eu-central-1"
+
+```json
 {
 "owner":"frumania",
 "repository":"aws-sap-scripts",
 "path":"hana_sda_athena"
 }
+```
 
 ## Post-Deployment steps
 
 - Restart SAP HANA e.g. HDB stop -> HDB start
 - In HANA Stuio: Add Athena as Remote source
 
-## TODO
+## Todo
 
-- Implement Params
 - Automated Test
