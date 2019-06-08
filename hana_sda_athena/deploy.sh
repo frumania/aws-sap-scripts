@@ -1,9 +1,13 @@
 # !/bin/bash
-echo "Printing text with newline"
+echo "Start"
 
 sudo -i
 
+echo "Install unixODBC"
+
 zypper install -y unixODBC
+
+echo "Install AthenaODBC"
 
 mkdir AthenaODBC
 
@@ -13,6 +17,7 @@ wget https://s3.amazonaws.com/athena-downloads/drivers/ODBC/SimbaAthenaODBC_1.0.
 
 zypper --no-gpg-checks install -y simbaathena-1.0.5.1006-1.x86_64.rpm
 
+echo "Create .odbc.ini"
 
 su hdbadm
 
@@ -28,6 +33,8 @@ AwsRegion=eu-central-1
 S3OutputLocation=s3://aws-athena-hana-int/logs/
 EOF
 
+echo "Create .customer.sh"
+
 cat > .customer.sh <<EOF
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/simba/athenaodbc/lib/64/
 export ODBCINI=$HOME/.odbc.ini
@@ -35,10 +42,14 @@ EOF
 
 chmod 700 .customer.sh
 
+echo "Test"
+
 # Test
 isql MyDSN -c -d
 
 exit
+
+echo "Create Property_Athena.ini"
 
 cd /usr/sap/HDB/SYS/exe/hdb/config
 
@@ -101,3 +112,5 @@ EOF
 chmod 444 Property_Athena.ini
 
 chown hdbadm:sapsys Property_Athena.ini
+
+echo "ALL DONE"
