@@ -4,6 +4,8 @@
 # Defaults <sid> = HDB, <sid>adm = hdbadm
 # Athena ODBC Driver version 1.0.5
 
+sudo -i
+
 zypper install -y unixODBC
 
 mkdir AthenaODBC
@@ -39,7 +41,7 @@ chmod 700 .customer.sh
 # Test
 isql MyDSN -c -d
 
-sudo -i
+exit
 
 cd /usr/sap/HDB/SYS/exe/hdb/config
 

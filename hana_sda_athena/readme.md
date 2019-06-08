@@ -21,6 +21,11 @@ $ deploy.sh -bucket s3://aws-athena-hana-int/logs/ -region eu-central-1
 
 ### Via AWS Systems Manager (SSM):
 
+{
+"owner":"frumania",
+"repository":"aws-sap-scripts",
+"path":"hana_sda_athena"
+}
 
 ## Post-Deployment steps
 
