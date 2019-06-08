@@ -13,21 +13,21 @@ https://aws.amazon.com/de/blogs/awsforsap/run-federated-queries-to-an-aws-data-l
 
 ## Deployment
 
-## Manually:
+### Manually:
 
 ```bash
 $ deploy.sh -bucket s3://aws-athena-hana-int/logs/ -region eu-central-1
 ```
 
-## Via AWS Systems Manager (SSM):
+### Via AWS Systems Manager (SSM):
 
 
-# Post-Deployment steps
+## Post-Deployment steps
 
 - Restart SAP HANA e.g. HDB stop -> HDB start
 - In HANA Stuio: Add Athena as Remote source
 
-# TODO
+## TODO
 
 - Implement Params
 - Automated Test
