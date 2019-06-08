@@ -12,7 +12,9 @@ https://help.sap.com/viewer/df02d156db744412ad1f9e887aba68ad/2.10.0.0/en-US/b472
 
 - SLES OS
 - SAP HANA
-- S3 bucket with downloaded software, as seen below:
+- S3 bucket with downloaded software (via SAP Support Launchpad), as seen below:
+
+![image](software.jpg)
 
 ## Deployment
 
@@ -27,7 +29,7 @@ e.g.
 
 ```bash
 $ chmod 700 deploy.sh
-$ ./deploy.sh s3://sap-sources/HANA_COCKPIT/ MyHanaCP123#
+$ ./deploy.sh s3://sap-sources/HANA_CLIENT/HANA_COCKPIT/ MyHanaCP123#
 ```
 
 
@@ -57,5 +59,5 @@ GRANT SELECT on SCHEMA _SYS_STATISTICS to <username>;
 
 ## Todo
 
-- Automated Connect SAP HANA
 - Create Role
+- Dynamic software version/filename
