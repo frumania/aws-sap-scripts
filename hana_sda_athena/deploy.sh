@@ -1,21 +1,19 @@
 # !/bin/bash
 echo "Start"
 
-sudo -i
-
 echo "Install unixODBC"
 
-zypper install -y unixODBC
+sudo zypper install -y unixODBC
 
 echo "Install AthenaODBC"
 
-mkdir AthenaODBC
+sudo mkdir AthenaODBC
 
 cd AthenaODBC
 
-wget https://s3.amazonaws.com/athena-downloads/drivers/ODBC/SimbaAthenaODBC_1.0.5/Linux/simbaathena-1.0.5.1006-1.x86_64.rpm
+sudo wget https://s3.amazonaws.com/athena-downloads/drivers/ODBC/SimbaAthenaODBC_1.0.5/Linux/simbaathena-1.0.5.1006-1.x86_64.rpm
 
-zypper --no-gpg-checks install -y simbaathena-1.0.5.1006-1.x86_64.rpm
+sudo zypper --no-gpg-checks install -y simbaathena-1.0.5.1006-1.x86_64.rpm
 
 echo "Create .odbc.ini"
 
