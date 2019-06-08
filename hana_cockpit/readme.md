@@ -58,5 +58,4 @@ https://<hostname>:3<instance number>32
 
 ## Todo
 
-- Create Role
-- Dynamic software version/filename
+- Create Role?
