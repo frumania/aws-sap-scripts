@@ -29,6 +29,8 @@ AwsRegion=eu-central-1
 S3OutputLocation=s3://aws-athena-hana-int/logs/
 EOF
 
+sudo chmod 700 .odbc.ini
+
 sudo chown hdbadm:sapsys .odbc.ini
 
 echo "Create .customer.sh"
@@ -45,6 +47,7 @@ sudo chown hdbadm:sapsys .customer.sh
 echo "Test"
 
 sudo -u hdbadm isql MyDSN -c -d
+quit
 
 echo "Create Property_Athena.ini"
 
