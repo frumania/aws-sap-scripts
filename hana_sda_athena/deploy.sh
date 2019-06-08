@@ -17,11 +17,9 @@ sudo zypper --no-gpg-checks install -y simbaathena-1.0.5.1006-1.x86_64.rpm
 
 echo "Create .odbc.ini"
 
-su hdbadm
-
 cd /usr/sap/HDB/home
 
-cat > .odbc.ini <<EOF
+sudo -u hdbadm cat > .odbc.ini <<EOF
 [Data Sources]
 MyDSN=Simba Athena ODBC Driver 64-bit
 [MyDSN]
@@ -33,17 +31,17 @@ EOF
 
 echo "Create .customer.sh"
 
-cat > .customer.sh <<EOF
+sudo -u hdbadm cat > .customer.sh <<EOF
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/simba/athenaodbc/lib/64/
 export ODBCINI=$HOME/.odbc.ini
 EOF
 
-chmod 700 .customer.sh
+sudo -u hdbadm chmod 700 .customer.sh
 
 echo "Test"
 
 # Test
-isql MyDSN -c -d
+sudo -u hdbadm isql MyDSN -c -d
 
 exit
 
@@ -51,7 +49,7 @@ echo "Create Property_Athena.ini"
 
 cd /usr/sap/HDB/SYS/exe/hdb/config
 
-cat > Property_Athena.ini <<EOF
+sudo cat > Property_Athena.ini <<EOF
 CAP_SUBQUERY : true
 CAP_ORDERBY : true
 CAP_JOINS : true
@@ -107,8 +105,8 @@ TYPE_NVARCHAR : STRING
 PROP_USE_UNIX_DRIVER_MANAGER : true
 EOF
 
-chmod 444 Property_Athena.ini
+sudo chmod 444 Property_Athena.ini
 
-chown hdbadm:sapsys Property_Athena.ini
+sudo chown hdbadm:sapsys Property_Athena.ini
 
 echo "ALL DONE"
