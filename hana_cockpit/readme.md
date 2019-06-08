@@ -51,7 +51,9 @@ GRANT SELECT on SCHEMA _SYS_STATISTICS to <username>;
 ```
 - Launch HANA Cockpit: 
 
-> https://<hostname>:3<instance number>32
+```bash
+https://<hostname>:3<instance number>32
+```
 
 ## Todo
 
