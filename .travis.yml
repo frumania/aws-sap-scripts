@@ -12,10 +12,6 @@ install:
 #  - npm install
 
 script:
-  - pwd
-  - chmod 777 /home/travis/build/frumania/aws-sap-scripts/test/test.sh
- # - docker run --name sles --mount type=bind,src=/home/travis/build/frumania/aws-sap-scripts,dst=/aws-sap-scripts -dit opensuse/tumbleweed /bin/bash  
- # - docker exec sles bash -c "cd /aws-sap-scripts/test && ./test.sh echo $key echo $secret"
-#- docker exec sles sh -c "/aws-sap-scripts/test/test.sh $KEY $SECRET"
-
-  - docker exec -it container sh -c "echo $KEY"
+  - pip3 install awscli --upgrade --user
+  - printf '$key\n$secret\neu-central-1\n\n\n' | aws configure
+  - aws s3 ls s3://sap-sources
