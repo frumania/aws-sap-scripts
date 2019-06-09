@@ -9,5 +9,4 @@ install:
 #  - npm install
 
 script:
-  - printf '$key\n$secret\neu-central-1\n\n\n' | aws configure
   - aws s3 ls s3://sap-sources
