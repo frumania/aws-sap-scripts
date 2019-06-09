@@ -1,17 +1,13 @@
-language: node_js
-node_js:
-  - "8"
-
-services:
-  - docker
+language: python
+python:
+  - "3.6"
 
 install:
- # - docker pull opensuse/tumbleweed
+  - pip3 install awscli --upgrade --user
  
 #before_script:
 #  - npm install
 
 script:
-  - pip3 install awscli --upgrade --user
   - printf '$key\n$secret\neu-central-1\n\n\n' | aws configure
   - aws s3 ls s3://sap-sources
