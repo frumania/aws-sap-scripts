@@ -49,6 +49,7 @@ sudo chown hdbadm:sapsys .customer.sh
 echo "Test Connection"
 
 sudo -u hdbadm isql MyDSN -c -d
+quit
 
 echo "Create Property_Athena.ini"
 
