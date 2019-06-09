@@ -15,4 +15,4 @@ script:
   - pwd
   - chmod 777 /home/travis/build/frumania/aws-sap-scripts/test/test.sh
   - docker run --name sles --mount type=bind,src=/home/travis/build/frumania/aws-sap-scripts,dst=/aws-sap-scripts -dit opensuse/tumbleweed /bin/bash  
-  - docker exec sles bash -it -c "cd /aws-sap-scripts/test && ./test.sh $key $secret"
+  - docker exec sles bash -it -c "cd /aws-sap-scripts/test && ./test.sh echo $key echo $secret"
