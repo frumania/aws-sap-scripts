@@ -9,6 +9,6 @@ install:
 #  - npm install
 
 script:
-  - aws s3 ls s3://sap-sources
-  - chmod 777 test/test.sh
+#  - aws s3 ls s3://sap-sources
+  - chmod 700 test/test.sh
   - sh test/test.sh
