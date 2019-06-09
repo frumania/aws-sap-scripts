@@ -13,6 +13,6 @@ install:
 
 script:
   - pwd
+  - chmod 777 /home/travis/build/frumania/aws-sap-scripts/test/test.sh
   - docker run --name sles --mount type=bind,src=/home/travis/build/frumania/aws-sap-scripts,dst=/aws-sap-scripts -dit darksheer/sles12 /aws-sap-scripts/test/test.sh  
-  - docker ps
-  - docker exec --user root -d sles bash /aws-sap-scripts/test/test.sh
+  - docker logs -f sles
