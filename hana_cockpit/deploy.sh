@@ -1,4 +1,5 @@
 # !/bin/bash
+set -e
 echo "START"
 
 BUCKET=$1
