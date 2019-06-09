@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "8"
+
+services:
+  - docker
+
+install:
+  - docker pull toolsmiths/sles-dev
+  - docker run -d toolsmiths/sles-dev -v /frumania/aws-sap-scripts:/aws-sap-scripts
+#  - docker run -i -t toolsmiths/sles-dev /bin/bash
+ 
+#before_script:
+#  - npm install
+
+script:
+  - pwd
+  - docker ps
