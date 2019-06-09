@@ -12,6 +12,8 @@ zypper --gpg-auto-import-keys --non-interactive --no-refresh install wget
 
 zypper --gpg-auto-import-keys --non-interactive --no-refresh install python3-pip
 
+zypper --gpg-auto-import-keys --non-interactive --no-refresh install unzip
+
 pip3 install awscli --upgrade --user
 
 export PATH=~/.local/bin:$PATH
