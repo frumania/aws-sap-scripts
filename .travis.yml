@@ -3,7 +3,7 @@ python:
   - "3.6"
 
 install:
-  - pip3 install awscli --upgrade --user
+  - pip3 install awscli
  
 #before_script:
 #  - npm install
