@@ -15,6 +15,6 @@ script:
   - pwd
   - chmod 777 /home/travis/build/frumania/aws-sap-scripts/test/test.sh
   - docker run --name sles --mount type=bind,src=/home/travis/build/frumania/aws-sap-scripts,dst=/aws-sap-scripts -dit opensuse/tumbleweed /bin/bash  
-  - docker exec --user root -it sles /bin/bash /aws-sap-scripts/test/test.sh
+  - docker exec --user root -it sles /bin/bash /aws-sap-scripts/test/test.sh $key $secret
   - docker logs -f sles
   - docker stop sles

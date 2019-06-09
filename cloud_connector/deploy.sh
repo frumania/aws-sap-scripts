@@ -17,7 +17,7 @@ sudo wget "https://tools.hana.ondemand.com/additional/sapcc-2.12.0.1-linux-x64.z
 
 sudo unzip sapcc-2.12.0.1-linux-x64.zip
 
-sudo rpm -i com.sap.scc-ui-2.12.0.1.x86_64.rpm
+sudo rpm -i com.sap.scc-ui-2.12.0-15.x86_64.rpm
 
 service scc_daemon status
 

@@ -27,8 +27,8 @@ MyDSN=Simba Athena ODBC Driver 64-bit
 [MyDSN]
 Driver=/opt/simba/athenaodbc/lib/64/libathenaodbc_sb64.so
 AuthenticationType=Instance Profile
-AwsRegion=eu-central-1
-S3OutputLocation=s3://aws-athena-hana-int/logs/
+AwsRegion=$2
+S3OutputLocation=$1
 EOF
 
 sudo chmod 700 .odbc.ini

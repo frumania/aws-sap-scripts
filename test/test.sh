@@ -2,7 +2,7 @@
 echo "START"
 KEY=$1
 SECRET=$2
-REGION=$3
+REGION="eu-central-1"
 
 #zypper ar -cfp 90 http://download.opensuse.org/tumbleweed/repo/oss/ opensuse
 
@@ -60,3 +60,4 @@ cd ..
 #cd ..
 
 echo "ALL DONE"
+exit
