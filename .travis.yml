@@ -6,7 +6,7 @@ services:
   - docker
 
 install:
-  - docker pull opensuse/tumbleweed
+ # - docker pull opensuse/tumbleweed
  
 #before_script:
 #  - npm install
@@ -14,6 +14,8 @@ install:
 script:
   - pwd
   - chmod 777 /home/travis/build/frumania/aws-sap-scripts/test/test.sh
-  - docker run --name sles --mount type=bind,src=/home/travis/build/frumania/aws-sap-scripts,dst=/aws-sap-scripts -dit opensuse/tumbleweed /bin/bash  
+ # - docker run --name sles --mount type=bind,src=/home/travis/build/frumania/aws-sap-scripts,dst=/aws-sap-scripts -dit opensuse/tumbleweed /bin/bash  
  # - docker exec sles bash -c "cd /aws-sap-scripts/test && ./test.sh echo $key echo $secret"
-  - docker exec sles sh -c "/aws-sap-scripts/test/test.sh $key $secret"
+#- docker exec sles sh -c "/aws-sap-scripts/test/test.sh $KEY $SECRET"
+
+  - docker exec -it container sh -c "echo $KEY"
