@@ -20,6 +20,8 @@ export PATH=~/.local/bin:$PATH
 
 printf '$KEY\n$SECRET\n$REGION\n\n\n' | aws configure
 
+aws s3 ls s3://sap-sources
+
 echo "Prep"
 
 mkdir /hana
@@ -60,4 +62,3 @@ cd ..
 #cd ..
 
 echo "ALL DONE"
-exit

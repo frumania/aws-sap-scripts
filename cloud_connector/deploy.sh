@@ -19,6 +19,8 @@ sudo unzip sapcc-2.12.0.1-linux-x64.zip
 
 sudo rpm -i com.sap.scc-ui-2.12.0-15.x86_64.rpm
 
+sleep 10
+
 service scc_daemon status
 
 echo "ALL DONE"
