@@ -6,7 +6,7 @@ services:
   - docker
 
 install:
-  - docker pull darksheer/sles12:latest
+  - docker pull opensuse/tumbleweed
  
 #before_script:
 #  - npm install

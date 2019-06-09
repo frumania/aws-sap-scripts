@@ -3,7 +3,9 @@ echo "START"
 
 echo "Install JAVA"
 
-sudo cd $HOME
+sudo mkdir /sapcc
+
+sudo cd /sapcc
 
 sudo wget "https://tools.hana.ondemand.com/additional/sapjvm-8.1.055-linux-x64.rpm"
 

@@ -9,9 +9,9 @@ sudo zypper install -y unixODBC
 
 echo "Install AthenaODBC"
 
-sudo mkdir AthenaODBC
+sudo mkdir /AthenaODBC
 
-cd AthenaODBC
+cd /AthenaODBC
 
 sudo wget https://s3.amazonaws.com/athena-downloads/drivers/ODBC/SimbaAthenaODBC_1.0.5/Linux/simbaathena-1.0.5.1006-1.x86_64.rpm
 

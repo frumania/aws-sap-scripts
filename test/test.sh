@@ -4,13 +4,24 @@ KEY=$1
 SECRET=$2
 REGION=$3
 
-sudo printf '$KEY\n$SECRET\n$REGION\n\n\n' | aws configure
+#zypper ar -cfp 90 http://download.opensuse.org/tumbleweed/repo/oss/ opensuse
+
+zypper --gpg-auto-import-keys -y --no-refresh install sudo
+
+zypper --gpg-auto-import-keys -y --no-refresh install wget
+
+zypper --gpg-auto-import-keys -y --no-refresh install python3-pip
+
+pip3 install awscli --upgrade --user
+
+export PATH=~/.local/bin:$PATH
+
+printf '$KEY\n$SECRET\n$REGION\n\n\n' | aws configure
 
 echo "Prep"
 
 mkdir /hana
 mkdir /hana/shared
-mkdir /usr
 mkdir /usr/sap
 mkdir /usr/sap/HDB
 mkdir /usr/sap/HDB/home
@@ -19,8 +30,10 @@ mkdir /usr/sap/HDB/SYS/exe
 mkdir /usr/sap/HDB/SYS/exe/hdb
 mkdir /usr/sap/HDB/SYS/exe/hdb/config
 
-sudo groupadd sapsys
-sudo adduser hdbadm sapsys
+groupadd sapsys
+useradd hdbadm -g sapsys
+
+cd /aws-sap-scripts
 
 echo "Test Cloud Connector"
 
