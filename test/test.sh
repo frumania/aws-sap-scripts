@@ -1,4 +1,5 @@
 # !/bin/bash
+set -e
 echo "START"
 KEY=$1
 SECRET=$2
@@ -62,3 +63,4 @@ cd ..
 #cd ..
 
 echo "ALL DONE"
+exit 0
