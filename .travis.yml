@@ -17,3 +17,4 @@ script:
   - docker run --name sles --mount type=bind,src=/home/travis/build/frumania/aws-sap-scripts,dst=/aws-sap-scripts -dit opensuse/tumbleweed /bin/bash  
   - docker exec --user root -it sles /bin/bash /aws-sap-scripts/test/test.sh
   - docker logs -f sles
+  - docker stop sles
