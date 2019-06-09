@@ -15,6 +15,8 @@ echo "Install SAP Cloud Connector"
 
 sudo wget "https://tools.hana.ondemand.com/additional/sapcc-2.12.0.1-linux-x64.zip" --header "Cookie: eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt"
 
+sudo zypper --gpg-auto-import-keys --non-interactive --no-refresh install unzip
+
 sudo unzip sapcc-2.12.0.1-linux-x64.zip
 
 sudo rpm -i com.sap.scc-ui-2.12.0-15.x86_64.rpm

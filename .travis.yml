@@ -10,3 +10,4 @@ install:
 
 script:
   - aws s3 ls s3://sap-sources
+  - sh /test/test.sh
