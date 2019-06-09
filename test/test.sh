@@ -6,11 +6,11 @@ REGION=$3
 
 #zypper ar -cfp 90 http://download.opensuse.org/tumbleweed/repo/oss/ opensuse
 
-zypper --gpg-auto-import-keys -y --no-refresh install sudo
+zypper --gpg-auto-import-keys --non-interactive --no-refresh install sudo
 
-zypper --gpg-auto-import-keys -y --no-refresh install wget
+zypper --gpg-auto-import-keys --non-interactive --no-refresh install wget
 
-zypper --gpg-auto-import-keys -y --no-refresh install python3-pip
+zypper --gpg-auto-import-keys --non-interactive --no-refresh install python3-pip
 
 pip3 install awscli --upgrade --user
 
