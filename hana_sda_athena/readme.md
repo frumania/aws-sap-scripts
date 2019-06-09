@@ -42,10 +42,10 @@ $ ./deploy.sh s3://aws-athena-hana-int/logs/ eu-central-1
 
 ## Post-Deployment steps
 
-- In HANA Studio/Cockpit: Add Athena as Remote source
+- In HANA Studio/Cockpit: Add Athena as Remote source (user & pw can be arbitary = dummy values only)
 
 ![image](https://d2908q01vomqb2.cloudfront.net/17ba0791499db908433b80f37c5fbc89b870084b/2018/09/07/image016.png)
 
 ## Todo
 
-- Automated Test
+n/a

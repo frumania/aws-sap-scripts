@@ -53,8 +53,15 @@ GRANT SELECT on SCHEMA _SYS_STATISTICS to <username>;
 - Launch HANA Cockpit and add target system(s): 
 
 ```bash
-https://<hostname>:51029
+https://<hostname>:51031/sap/hana/cockpit/admin/index.html
 ```
+
+```bash
+https://<hostname>:51029/cockpit
+```
+
+User COCKPIT_ADMIN
+Password <password>
 
 ## Todo
 
