@@ -7,12 +7,11 @@ services:
 
 install:
   - docker pull darksheer/sles12:latest
-  - docker run -d darksheer/sles12:latest -v /home/travis/build/frumania/aws-sap-scripts:/aws-sap-scripts
-#  - docker run -i -t toolsmiths/sles-dev /bin/bash
  
 #before_script:
 #  - npm install
 
 script:
   - pwd
+  - docker run -d darksheer/sles12:latest -t -i --mount type=bind,src=/home/travis/build/frumania/aws-sap-scripts,dst=/aws-sap-scripts ./test/test.sh
   - docker ps
