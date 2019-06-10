@@ -60,8 +60,10 @@ https://<hostname>:51031/sap/hana/cockpit/admin/index.html
 https://<hostname>:51029/cockpit
 ```
 
+```bash
 User COCKPIT_ADMIN
 Password <password>
+```
 
 ## Todo
 
