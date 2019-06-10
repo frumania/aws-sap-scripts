@@ -7,7 +7,6 @@ amazon-corretto-8.212.04.2-windows-x64.msi /qn /L* "C:\tmp\install.log" /noresta
 sleep 60
 
 [Environment]::SetEnvironmentVariable("JAVA_HOME", "C:\Program Files\Amazon Corretto\jdk1.8.0_212")
-
 [System.Environment]::SetEnvironmentVariable("PATH", $Env:Path + ";$($Env:JAVA_HOME)\bin", "User")
 
 sudo /usr/local/eclipse/eclipse -nosplash \

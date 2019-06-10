@@ -15,8 +15,8 @@ sleep 180
 result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --plugin-name runShellScript --output text --query "Status")
 echo $result
 
-if [[ $result != *"success"* ]]; then
-  echo "Error"
+if [ $result != *"Success"* ] then
+  echo "Error - Script failed!"
   exit 1
 fi
 
@@ -28,8 +28,8 @@ sleep 180
 result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --plugin-name runShellScript --output text --query "Status")
 echo $result
 
-if [[ $result != *"success"* ]]; then
-  echo "Error"
+if [ $result != *"Success"* ] then
+  echo "Error - Script failed!"
   exit 1
 fi
 
@@ -41,4 +41,4 @@ fi
 #echo $result
 
 echo "Terminate Instance"
-aws ec2 terminate-instances --instance-ids $instance_id
+#aws ec2 terminate-instances --instance-ids $instance_id
