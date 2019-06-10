@@ -15,8 +15,8 @@ sleep 240
 echo "Test SAP GUI"
 sh_command_id_win=$(aws ssm send-command --document-name "AWS-RunRemoteScript" --document-version "1" --targets "Key=instanceids,Values=$instance_id_win" --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\n\"owner\":\"frumania\",\n\"repository\":\"aws-sap-scripts\",\n\"path\":\"sap_gui\"\n}"],"commandLine":["powershell.exe -File \"deploy.ps1\" \"sap-sources\" \"SAPGUI_CLIENT\""],"workingDirectory":[""],"executionTimeout":["3600"]}' --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --output-s3-bucket-name "aws-ssm-instance-logs" --region eu-central-1)
 echo $sh_command_id_win
-echo "Wait 3 min"
-sleep 180
+echo "Wait 5 min"
+sleep 300
 result=$(aws ssm get-command-invocation --instance-id $instance_id_win --command-id "$sh_command_id_win" --plugin-name runPowerShellScript --output text --query "Status")
 echo $result
 if [[ $result != *"Success"* ]]; then
@@ -58,3 +58,6 @@ fi
 echo "Terminate Instance"
 aws ec2 terminate-instances --instance-ids $instance_id
 aws ec2 terminate-instances --instance-ids $instance_id_win
+
+
+aws ssm get-command-invocation --instance-id i-0b84a0e4ff6720e9c --command-id "7ee1e31f-1320-4fa0-8cf4-50f41287e7b8" --plugin-name runPowerShellScript --output text --query "Status"
