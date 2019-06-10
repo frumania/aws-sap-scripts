@@ -4,7 +4,7 @@
 
 Scripts to install/deploy various SAP components & tools
 - SAP GUI 7.6 (Win)
-- HANA Studio (Win)
+- SAP HANA Studio (Win)
 - SAP Cloud Connector 2.12.0.1 (SLES)
 - SAP HANA Smart Data Integration - AWS Athena (SLES)
 - SAP HANA Cockpit (SLES)
