@@ -5,15 +5,15 @@ echo "Boot Instance Linux"
 instance_id=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0224bf3ab77c362a2,Version=8 --query 'Instances[].[InstanceId]' --output text)
 echo $instance_id
 
-#echo "Boot Instance Win"
-#instance_id_win=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0376ef5c4d666d6df,Version=4 --query 'Instances[].[InstanceId]' --output text)
-#echo $instance_id_win
+echo "Boot Instance Win"
+instance_id_win=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0376ef5c4d666d6df,Version=4 --query 'Instances[].[InstanceId]' --output text)
+echo $instance_id_win
 
 echo "Wait 4 min"
 sleep 240
 
 echo "Test SAP GUI"
-sh_command_id_win=$(aws ssm send-command --document-name "AWS-RunRemoteScript" --document-version "1" --targets "Key=instanceids,Values=i-0edbbf7a71095414d" --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\n\"owner\":\"frumania\",\n\"repository\":\"aws-sap-scripts\",\n\"path\":\"sap_gui\"\n}"],"commandLine":["deploy.bat \"sap-sources\" \"SAPGUI_CLIENT\""],"workingDirectory":[""],"executionTimeout":["3600"]}' --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --output-s3-bucket-name "aws-ssm-instance-logs" --region eu-central-1)
+sh_command_id_win=$(aws ssm send-command --document-name "AWS-RunRemoteScript" --document-version "1" --targets "Key=instanceids,Values=$instance_id_win" --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\n\"owner\":\"frumania\",\n\"repository\":\"aws-sap-scripts\",\n\"path\":\"sap_gui\"\n}"],"commandLine":["powershell.exe -File \"deploy.ps1\" \"sap-sources\" \"SAPGUI_CLIENT\""],"workingDirectory":[""],"executionTimeout":["3600"]}' --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --output-s3-bucket-name "aws-ssm-instance-logs" --region eu-central-1)
 echo $sh_command_id_win
 echo "Wait 3 min"
 sleep 180
@@ -57,3 +57,4 @@ fi
 
 echo "Terminate Instance"
 aws ec2 terminate-instances --instance-ids $instance_id
+aws ec2 terminate-instances --instance-ids $instance_id_win
