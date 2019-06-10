@@ -47,11 +47,6 @@ sudo chmod 700 .customer.sh
 
 sudo chown hdbadm:sapsys .customer.sh
 
-echo "Test Connection"
-
-sudo -u hdbadm isql MyDSN -c -d
-quit
-
 echo "Create Property_Athena.ini"
 
 cd /usr/sap/HDB/SYS/exe/hdb/config
@@ -115,5 +110,9 @@ EOF
 sudo chmod 444 Property_Athena.ini
 
 sudo chown hdbadm:sapsys Property_Athena.ini
+
+echo "Test Connection"
+
+sudo -u hdbadm isql MyDSN -c -d
 
 echo "ALL DONE"

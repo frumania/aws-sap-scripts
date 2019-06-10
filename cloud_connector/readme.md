@@ -5,7 +5,7 @@ https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/f069840
 
 ## Prerequisites:
 
-- SLES/RH OS
+- SLES OS 64bit
 
 ## Deployment
 

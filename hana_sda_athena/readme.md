@@ -5,7 +5,7 @@ https://aws.amazon.com/de/blogs/awsforsap/run-federated-queries-to-an-aws-data-l
 
 ## Prerequisites:
 
-- SLES OS
+- SLES OS 64bit
 - SAP HANA
 - Assigned EC2 instance role with policy "AmazonAthenaFullAccess" or similar.
 - S3 bucket to store logs
