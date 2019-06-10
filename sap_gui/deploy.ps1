@@ -4,7 +4,7 @@ $bucket = $Args[0]
 $prefix = $Args[1]
 
 $mypath = "c:/tmp_sapgui"
-If(!(test-path $path))
+If(!(test-path $mypath))
 {
       New-Item -ItemType Directory -Force -Path $mypath
 }
