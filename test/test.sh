@@ -58,6 +58,3 @@ fi
 echo "Terminate Instance"
 aws ec2 terminate-instances --instance-ids $instance_id
 aws ec2 terminate-instances --instance-ids $instance_id_win
-
-
-aws ssm get-command-invocation --instance-id i-0b84a0e4ff6720e9c --command-id "7ee1e31f-1320-4fa0-8cf4-50f41287e7b8" --plugin-name runPowerShellScript --output text --query "Status"
