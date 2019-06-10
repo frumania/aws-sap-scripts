@@ -1,9 +1,14 @@
 # !/bin/bash
 set -e
 
-echo "Boot Instance"
+echo "Boot Instance Linux"
 instance_id=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0224bf3ab77c362a2,Version=8 --query 'Instances[].[InstanceId]' --output text)
 echo $instance_id
+
+#echo "Boot Instance Win"
+#instance_id_win=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0376ef5c4d666d6df,Version=4 --query 'Instances[].[InstanceId]' --output text)
+#echo $instance_id_win
+
 echo "Wait 4 min"
 sleep 240
 
