@@ -21,6 +21,8 @@ echo "Install SAP GUI 7.60"
 
 sleep 120
 
+echo "Checking Installation..."
+
 if (!(Test-Path "C:\Program Files (x86)\SAP\FrontEnd\SAPgui\saplogon.exe")) {
   echo "Error - Script failed!"
   exit 1

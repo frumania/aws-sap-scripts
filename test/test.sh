@@ -17,7 +17,7 @@ sh_command_id_win=$(aws ssm send-command --document-name "AWS-RunRemoteScript" -
 echo $sh_command_id_win
 echo "Wait 3 min"
 sleep 180
-result=$(aws ssm get-command-invocation --instance-id $instance_id_win --command-id "$sh_command_id_win" --plugin-name runShellScript --output text --query "Status")
+result=$(aws ssm get-command-invocation --instance-id $instance_id_win --command-id "$sh_command_id_win" --plugin-name runPowerShellScript --output text --query "Status")
 echo $result
 if [[ $result != *"Success"* ]]; then
   echo "Error - Script failed!"
