@@ -13,15 +13,14 @@ Automatically installs SAP GUI 7.60 on Windows
 
 ### Manually:
 
-```bash
-$ chmod 700 deploy.sh
-$ ./deploy.bat "<bucket>" "<folder/prefix>"
+```cmd
+$ powershell.exe -File "deploy.ps1" "<bucket>" "<prefix>"
 ```
 
 e.g.
 
-```bash
-$ ./deploy.bat "sap-sources" "SAPGUI_CLIENT"
+```cmd
+$ powershell.exe -File "deploy.ps1" "sap-sources" "SAPGUI_CLIENT"
 ```
 
 
@@ -29,7 +28,7 @@ $ ./deploy.bat "sap-sources" "SAPGUI_CLIENT"
 
 1) Choose 'AWS-RunRemoteScript'
 2) Choose Source Type "GitHub"
-3) Choose Command Line 'deploy.bat "sap-sources" "SAPGUI_CLIENT"'
+3) Choose Command Line 'powershell.exe -File "deploy.ps1" "sap-sources" "SAPGUI_CLIENT"'
 
 ```json
 {

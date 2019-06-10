@@ -3,12 +3,17 @@ $ErrorActionPreference = "Stop"
 $bucket = $Args[0]
 $prefix = $Args[1]
 
-mkdir c:/tmp_sapgui
-cd c:/tmp_sapgui
+$mypath = "c:/tmp_sapgui"
+If(!(test-path $path))
+{
+      New-Item -ItemType Directory -Force -Path $mypath
+}
+
+cd $mypath
 
 echo "Download software from bucket..."
 
-Read-S3Object -BucketName $bucket -KeyPrefix $prefix -Folder c:/tmp_sapgui
+Read-S3Object -BucketName $bucket -KeyPrefix $prefix -Folder $mypath
 
 echo "Install SAP GUI 7.60"
 
@@ -20,9 +25,5 @@ if (!(Test-Path "C:\Program Files (x86)\SAP\FrontEnd\SAPgui\saplogon.exe")) {
   echo "Error - Script failed!"
   exit 1
 }
-
-echo "Clean up..."
-
-rm c:/tmp_sapgui -R
 
 echo "ALL DONE"
