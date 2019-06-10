@@ -23,6 +23,8 @@ Expand-Archive -Path eclipse-java-2019-03-R-win32-x86_64.zip -DestinationPath $m
 
 cd eclipse
 
+dir
+
 #.\eclipse.exe -nosplash \
 #  -application org.eclipse.equinox.p2.director \
 #  -repository http://download.eclipse.org/releases/indigo/,http://download.eclipse.org/tools/cdt/releases/helios/ \
