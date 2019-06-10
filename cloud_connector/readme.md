@@ -34,3 +34,6 @@ $ ./deploy.sh
 
 Service Lifecycle
 > service scc_daemon stop|restart|start|status
+
+Launch Admin UI
+> https://<hostname>:8443
