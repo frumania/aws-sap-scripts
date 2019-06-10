@@ -1,6 +1,6 @@
 # Overview
 
-Automatically installs SAP GUI 7.60 on Windows
+Automatically installs Eclipse on Windows
 
 ## Prerequisites:
 
@@ -20,7 +20,7 @@ $ powershell.exe -File "deploy.ps1" "<bucket>" "<prefix>"
 e.g.
 
 ```cmd
-$ powershell.exe -File "deploy.ps1" "sap-sources" "SAPGUI_CLIENT"
+$ powershell.exe -File "deploy.ps1" "sap-sources" "HANA_CLIENT/HANA_STUDIO"
 ```
 
 
@@ -34,10 +34,10 @@ $ powershell.exe -File "deploy.ps1" "sap-sources" "SAPGUI_CLIENT"
 {
 "owner":"frumania",
 "repository":"aws-sap-scripts",
-"path":"sap_gui"
+"path":"hana_studio"
 }
 ```
 
 ## Todo
 
-n/a
+Auto install SAP plugins for Eclipse
