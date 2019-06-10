@@ -12,7 +12,7 @@ If(!(test-path $mypath))
 cd $mypath
 Read-S3Object -BucketName $bucket -KeyPrefix $prefix -Folder $mypath
 
-amazon-corretto-8.212.04.2-windows-x64.msi /qn /L* "install.log" /norestart ALLUSERS=2
+.\amazon-corretto-8.212.04.2-windows-x64.msi /qn /L* "install.log" /norestart ALLUSERS=2
 
 sleep 60
 
