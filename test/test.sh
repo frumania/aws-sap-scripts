@@ -12,7 +12,7 @@ sh_command_id=$(aws ssm send-command --document-name "AWS-RunRemoteScript" --doc
 echo $sh_command_id
 echo "Wait 3 min"
 sleep 180
-result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --query "Status")
+result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --output text --query "Status")
 echo $result
 
 if [[ $result != *"success"* ]]; then
@@ -25,7 +25,7 @@ sh_command_id=$(aws ssm send-command --document-name "AWS-RunRemoteScript" --doc
 echo $sh_command_id
 echo "Wait 3 min"
 sleep 180
-result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --query "Status")
+result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --output text--query "Status")
 echo $result
 
 if [[ $result != *"success"* ]]; then
