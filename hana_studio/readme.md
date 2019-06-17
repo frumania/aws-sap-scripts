@@ -1,26 +1,23 @@
 # Overview
 
-Automatically installs Eclipse on Windows
+Automatically installs Amazon Corretto (8.212.04.2) and Eclipse (2018-12) incl. SAP HANA Studio Plugins.
 
 ## Prerequisites:
 
 - Win OS 64bit
-- S3 bucket with software:
-
-![image](software.jpg)
 
 ## Deployment
 
 ### Manually:
 
 ```cmd
-$ powershell.exe -File "deploy.ps1" "<bucket>" "<prefix>"
+$ powershell.exe -File "deploy.ps1"
 ```
 
 e.g.
 
 ```cmd
-$ powershell.exe -File "deploy.ps1" "sap-sources" "HANA_CLIENT/HANA_STUDIO"
+$ powershell.exe -File "deploy.ps1"
 ```
 
 
@@ -28,7 +25,7 @@ $ powershell.exe -File "deploy.ps1" "sap-sources" "HANA_CLIENT/HANA_STUDIO"
 
 1) Choose 'AWS-RunRemoteScript'
 2) Choose Source Type "GitHub"
-3) Choose Command Line 'powershell.exe -File "deploy.ps1" "<bucket>" "<prefix>"'
+3) Choose Command Line 'powershell.exe -File "deploy.ps1"
 
 ```json
 {

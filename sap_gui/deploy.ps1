@@ -11,17 +11,22 @@ If(!(test-path $mypath))
 
 cd $mypath
 
-echo "Download software from bucket..."
+Write-Host "Download software from bucket $bucket/$prefix"
 
 Read-S3Object -BucketName $bucket -KeyPrefix $prefix -Folder $mypath
 
-echo "Install SAP GUI 7.60"
+#.\GUI760_1-80003144.EXE /noDlg
 
-.\GUI760_1-80003144.EXE /noDlg
+$files = get-childitem -Filter *GUI*.exe $mypath
+foreach ($file in $files)
+{
+  Write-Host "Install SAP GUI $file.Fullname"
+  Start-Process $file.Fullname -ArgumentList "/noDlg"
+}
 
 sleep 120
 
-echo "Checking Installation..."
+echo "Checking installation..."
 
 if (!(Test-Path "C:\Program Files (x86)\SAP\FrontEnd\SAPgui\saplogon.exe")) {
   echo "Error - Script failed!"

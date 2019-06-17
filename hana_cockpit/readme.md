@@ -6,7 +6,11 @@ https://help.sap.com/viewer/df02d156db744412ad1f9e887aba68ad/2.10.0.0/en-US/b472
 ## Prerequisites:
 
 - SLES OS
-- S3 bucket with downloaded software (via SAP Support Launchpad), as seen below (plz rename accordingly!):
+- S3 bucket with downloaded software (via SAP Support Launchpad), as seen below. Please rename accordingly!
+
+[Download SAP HANA Cockpit 2.0 - Linux x86_64](https://launchpad.support.sap.com/#/softwarecenter/template/products/%20_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=73555000100200005745&V=MAINT&TA=ACTUAL&PAGE=SEARCH/SAP%20HANA%20COCKPIT%202.0)
+
+[Download SAPCAR - Linux x86_64](https://launchpad.support.sap.com/#/softwarecenter/template/products/%20_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=01200615320100002542&V=MAINT&TA=ACTUAL&PAGE=SEARCH/SAPCAR)
 
 ![image](software.jpg)
 
@@ -32,7 +36,7 @@ $ ./deploy.sh s3://sap-sources/HANA_CLIENT/HANA_COCKPIT/ MyHanaCP123#
 
 1) Choose 'AWS-RunRemoteScript'
 2) Choose Source Type "GitHub"
-3) Choose Command Line "deploy.sh s3://<bucket>/ <password>"
+3) Choose Command Line "deploy.sh s3://\<bucket\>/ \<password\>"
 
 ```json
 {
@@ -50,6 +54,20 @@ CREATE USER <username> PASSWORD <password> NO FORCE_FIRST_PASSWORD_CHANGE;
 GRANT CATALOG READ to <username>;
 GRANT SELECT on SCHEMA _SYS_STATISTICS to <username>;
 ```
+- Check if processes are running correctly
+
+```bash
+su h4cadm
+```
+
+```bash
+xs login
+```
+
+```bash
+xs apps
+```
+
 - Launch HANA Cockpit and add target system(s): 
 
 ```bash

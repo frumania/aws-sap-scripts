@@ -5,7 +5,7 @@ echo "START"
 BUCKET=$1
 PASS=$2
 
-echo "Download files"
+echo "Download software from bucket "+$bucket
 
 mkdir /hana/shared/tmp_hana_cockpit
 
