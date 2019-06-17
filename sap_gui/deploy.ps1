@@ -20,7 +20,7 @@ Read-S3Object -BucketName $bucket -KeyPrefix $prefix -Folder $mypath
 $files = get-childitem -Filter *GUI*.exe $mypath
 foreach ($file in $files)
 {
-  Write-Host "Install SAP GUI $file.Fullname"
+  Write-Host "Install SAP GUI $file"
   Start-Process $file.Fullname -ArgumentList "/noDlg"
 }
 

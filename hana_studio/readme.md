@@ -1,6 +1,6 @@
 # Overview
 
-Automatically installs Amazon Corretto (8.212.04.2) and Eclipse (2018-12) incl. SAP HANA Studio Plugins.
+Automatically installs Amazon Corretto JDK (8.212.04.2) and Eclipse (2018-12) incl. latest SAP HANA Studio Plugins.
 
 ## Prerequisites:
 

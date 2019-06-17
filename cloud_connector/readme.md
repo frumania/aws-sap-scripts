@@ -33,7 +33,9 @@ $ ./deploy.sh
 ## Post-Deployment steps
 
 Service Lifecycle
-> service scc_daemon stop|restart|start|status
+```bash
+service scc_daemon stop|restart|start|status
+```
 
 Launch Admin UI
 

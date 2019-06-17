@@ -13,12 +13,12 @@ sh_command_id=$(aws ssm send-command --document-name "AWS-RunRemoteScript" --doc
 echo $sh_command_id
 echo "Wait 5 min"
 sleep 300
-result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --plugin-name runPowerShellScript --output text --query "Status")
-echo $result
-if [[ $result != *"Success"* ]]; then
-  echo "Error - Script failed!"
-  exit 1
-fi
+#result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --plugin-name runPowerShellScript --output text --query "Status")
+#echo $result
+#if [[ $result != *"Success"* ]]; then
+#  echo "Error - Script failed!"
+#  exit 1
+#fi
 
 
 echo "Test HANA Studio"
@@ -27,12 +27,13 @@ sh_command_id=$(aws ssm send-command --document-name "AWS-RunRemoteScript" --doc
 echo $sh_command_id
 echo "Wait 3 min"
 sleep 180
-result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --plugin-name runPowerShellScript --output text --query "Status")
-echo $result
-if [[ $result != *"Success"* ]]; then
-  echo "Error - Script failed!"
-  exit 1
-fi
+aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --plugin-name runPowerShellScript --output text --query "Status"
+#result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --plugin-name runPowerShellScript --output text --query "Status")
+#echo $result
+#if [[ $result != *"Success"* ]]; then
+#  echo "Error - Script failed!"
+#  exit 1
+#fi
 
 echo "Terminate Instance"
 aws ec2 terminate-instances --instance-ids $instance_id
