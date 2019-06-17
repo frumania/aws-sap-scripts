@@ -35,6 +35,12 @@ $ powershell.exe -File "deploy.ps1"
 ```
 4) Command Line: powershell.exe -File "deploy.ps1"
 
+## Post-Deployment steps
+
+Run "Install_SAP_HANA_STUDIO_Plugins.ps1" with powershell
+
+![image](powershell.jpg)
+
 ## Result
 
 ![image](result.jpg)
