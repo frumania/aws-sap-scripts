@@ -43,7 +43,9 @@ Run "Install_SAP_HANA_STUDIO_Plugins.ps1" with powershell
 
 ![image](powershell1.jpg)
 
-## Result
+This might take up to 5 min!
+
+After successful completion, launch eclipse via the desktop icon.
 
 ![image](result.jpg)
 
