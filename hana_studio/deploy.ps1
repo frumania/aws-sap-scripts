@@ -43,7 +43,10 @@ echo "Installing SAP HANA Studio Plugin for Eclipse..."
 
 #.\eclipse -nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository http://download.eclipse.org/releases/2018-12 -installIU "org.eclipse.emf.transaction,org.eclipse.zest.core,org.eclipse.zest.core,org.eclipse.draw2d.feature.group,org.eclipse.emf.common.ui.feature.group,org.eclipse.emf.databinding.feature.group,org.eclipse.emf.ecore.edit.feature.group,org.eclipse.emf.edit.feature.group,org.eclipse.emf.edit.ui.feature.group,org.eclipse.gef.feature.group,org.eclipse.zest.feature.group,org.eclipse.ui.trace,javax.mail,org.apache.commons.collections,org.eclipse.graphiti,org.eclipse.graphiti.ui,org.eclipse.wst.web_ui.feature.feature.group,org.eclipse.emf.feature.group,org.eclipse.emf.transaction.feature.group,org.eclipse.emf.validation.feature.group,org.eclipse.emf.workspace.feature.group,org.eclipse.graphiti.feature.feature.group,org.eclipse.xpand.feature.group,org.eclipse.xtend.ui.feature.group"
 #.\eclipse -nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository https://tools.hana.ondemand.com/2018-12 -list
-.\eclipse -nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository "https://tools.hana.ondemand.com/2018-12,http://download.eclipse.org/releases/2018-12" -installIU HANATools
+#.\eclipse -nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository "https://tools.hana.ondemand.com/2018-12,http://download.eclipse.org/releases/2018-12" -installIU HANATools
+
+$myeclipsepath = $mypath+"/eclipse/eclipse.exe";
+Start-Process -NoNewWindow -FilePath $myeclipsepath -ArgumentList "-nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository https://tools.hana.ondemand.com/2018-12,http://download.eclipse.org/releases/2018-12 -installIU HANATools"
 
 sleep 360
 
