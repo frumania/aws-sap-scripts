@@ -13,5 +13,5 @@ script:
   - aws --version
   - chmod 700 test/test_sles.sh
   - chmod 700 test/test_win.sh
-  - sh test/test_sles.sh
-  - sh test/test_win.sh
+  - bash test/test_sles.sh
+  - bash test/test_win.sh

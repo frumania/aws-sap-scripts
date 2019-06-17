@@ -41,6 +41,8 @@ Run "Install_SAP_HANA_STUDIO_Plugins.ps1" with powershell
 
 ![image](powershell.jpg)
 
+![image](powershell1.jpg)
+
 ## Result
 
 ![image](result.jpg)
