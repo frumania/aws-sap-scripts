@@ -11,6 +11,7 @@ install:
 
 script:
 #  - aws s3 ls s3://sap-sources
+  - aws --version
   - chmod 700 test/test_sles.sh
   - chmod 700 test/test_win.sh
   - sh test/test_sles.sh
