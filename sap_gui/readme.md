@@ -28,10 +28,9 @@ $ powershell.exe -File "deploy.ps1" "sap-sources" "SAPGUI_CLIENT"
 
 ### Via AWS Systems Manager (SSM):
 
-1) Choose: 'AWS-RunRemoteScript'
-2) Choose Source Type: 'GitHub'
-3) Choose Command Line: 'powershell.exe -File "deploy.ps1" "\<bucket\>" "\<directory\>" '
-
+1) Choose: AWS-RunRemoteScript
+2) Source Type: GitHub
+3) Source Info:
 ```json
 {
 "owner":"frumania",
@@ -39,6 +38,7 @@ $ powershell.exe -File "deploy.ps1" "sap-sources" "SAPGUI_CLIENT"
 "path":"sap_gui"
 }
 ```
+4) Command Line: powershell.exe -File "deploy.ps1" "\<bucket\>" "\<directory\>"
 
 ## Todo
 

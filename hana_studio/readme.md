@@ -23,10 +23,9 @@ $ powershell.exe -File "deploy.ps1"
 
 ### Via AWS Systems Manager (SSM):
 
-1) Choose 'AWS-RunRemoteScript'
-2) Choose Source Type "GitHub"
-3) Choose Command Line 'powershell.exe -File "deploy.ps1"
-
+1) Choose: AWS-RunRemoteScript
+2) Source Type: GitHub
+3) Source Info:
 ```json
 {
 "owner":"frumania",
@@ -34,7 +33,12 @@ $ powershell.exe -File "deploy.ps1"
 "path":"hana_studio"
 }
 ```
+4) Command Line: powershell.exe -File "deploy.ps1"
+
+## Result
+
+![image](result.jpg)
 
 ## Todo
 
-Auto install SAP plugins for Eclipse
+n/a

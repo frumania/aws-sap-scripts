@@ -28,10 +28,9 @@ $ ./deploy.sh s3://aws-athena-hana-int/logs/ eu-central-1
 
 ### Via AWS Systems Manager (SSM):
 
-1) Choose 'AWS-RunRemoteScript'
-2) Choose Source Type "GitHub"
-3) Choose Command Line "deploy.sh s3://<bucket>/ <region>"
-
+1) Choose: AWS-RunRemoteScript
+2) Source Type: GitHub
+3) Source Info:
 ```json
 {
 "owner":"frumania",
@@ -39,6 +38,7 @@ $ ./deploy.sh s3://aws-athena-hana-int/logs/ eu-central-1
 "path":"hana_sda_athena"
 }
 ```
+4) Command Line: deploy.sh s3://<bucket>/ <region>
 
 ## Post-Deployment steps
 

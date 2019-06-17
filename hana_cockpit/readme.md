@@ -34,10 +34,9 @@ $ ./deploy.sh s3://sap-sources/HANA_CLIENT/HANA_COCKPIT/ MyHanaCP123#
 
 ### Via AWS Systems Manager (SSM):
 
-1) Choose 'AWS-RunRemoteScript'
-2) Choose Source Type "GitHub"
-3) Choose Command Line "deploy.sh s3://\<bucket\>/ \<password\>"
-
+1) Choose: AWS-RunRemoteScript
+2) Source Type: GitHub
+3) Source Info:
 ```json
 {
 "owner":"frumania",
@@ -45,6 +44,7 @@ $ ./deploy.sh s3://sap-sources/HANA_CLIENT/HANA_COCKPIT/ MyHanaCP123#
 "path":"hana_cockpit"
 }
 ```
+4) Command Line: deploy.sh s3://\<bucket\>/ \<password\>
 
 ## Post-Deployment steps
 

@@ -18,10 +18,9 @@ $ ./deploy.sh
 
 ### Via AWS Systems Manager (SSM):
 
-1) Choose 'AWS-RunRemoteScript'
-2) Choose Source Type "GitHub"
-3) Choose Command Line "deploy.sh"
-
+1) Choose: AWS-RunRemoteScript
+2) Source Type: GitHub
+3) Source Info:
 ```json
 {
 "owner":"frumania",
@@ -29,6 +28,7 @@ $ ./deploy.sh
 "path":"cloud_connector"
 }
 ```
+4) Command Line: deploy.sh
 
 ## Post-Deployment steps
 
