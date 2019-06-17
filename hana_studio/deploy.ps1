@@ -23,7 +23,7 @@ sleep 60
 echo "Set JAVA HOME..."
 [Environment]::SetEnvironmentVariable("JAVA_HOME", "C:\Program Files\Amazon Corretto\jdk1.8.0_212")
 [System.Environment]::SetEnvironmentVariable("PATH", $Env:Path + ";$($Env:JAVA_HOME)\bin", "User")
-java -version
+#java -version
 echo "...done!"
 
 echo "Downloading Eclipse..."
