@@ -25,8 +25,8 @@ echo "Test HANA Studio"
 
 sh_command_id=$(aws ssm send-command --document-name "AWS-RunRemoteScript" --document-version "1" --targets "Key=instanceids,Values=$instance_id" --parameters '{"sourceType":["GitHub"],"sourceInfo":["{\n\"owner\":\"frumania\",\n\"repository\":\"aws-sap-scripts\",\n\"path\":\"hana_studio\"\n}"],"commandLine":["powershell.exe -File \"deploy.ps1\""],"workingDirectory":[""],"executionTimeout":["3600"]}' --timeout-seconds 600 --max-concurrency "50" --max-errors "0" --output-s3-bucket-name "aws-ssm-instance-logs" --region eu-central-1 --output text --query "Command.CommandId")
 echo $sh_command_id
-echo "Wait 10 min"
-sleep 600
+echo "Wait 8 min"
+sleep 480
 result=$(aws ssm get-command-invocation --instance-id $instance_id --command-id "$sh_command_id" --plugin-name runPowerShellScript --output text --query "Status")
 echo $result
 if [[ $result != *"Success"* ]]; then
