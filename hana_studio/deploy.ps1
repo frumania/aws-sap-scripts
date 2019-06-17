@@ -46,7 +46,7 @@ echo "Installing SAP HANA Studio Plugin for Eclipse..."
 #.\eclipse -nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository "https://tools.hana.ondemand.com/2018-12,http://download.eclipse.org/releases/2018-12" -installIU HANATools
 
 $myeclipsepath = $mypath+"/eclipse/eclipse.exe";
-Start-Process -NoNewWindow -FilePath $myeclipsepath -ArgumentList "-nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository https://tools.hana.ondemand.com/2018-12,http://download.eclipse.org/releases/2018-12 -installIU HANATools"
+Start-Process -FilePath $myeclipsepath -ArgumentList "-nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository https://tools.hana.ondemand.com/2018-12,http://download.eclipse.org/releases/2018-12 -installIU HANATools"
 
 sleep 360
 
