@@ -2,7 +2,7 @@
 set -e
 
 echo "Boot Instance Win"
-instance_id=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0376ef5c4d666d6df,Version=4 --query 'Instances[].[InstanceId]' --output text)
+instance_id=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0376ef5c4d666d6df,Version=6 --query 'Instances[].[InstanceId]' --output text)
 echo $instance_id
 echo "Wait 4 min"
 sleep 240
