@@ -6,6 +6,7 @@ https://help.sap.com/viewer/cca91383641e40ffbe03bdc78f00f681/Cloud/en-US/f069840
 ## Prerequisites:
 
 - SLES OS 64bit
+- Adjust deploy.sh with latest install files from https://tools.eu1.hana.ondemand.com
 
 ## Deployment
 
