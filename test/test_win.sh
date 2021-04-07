@@ -2,7 +2,7 @@
 set -e
 
 echo "Boot Instance Win..."
-instance_id=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0376ef5c4d666d6df,Version=8 --subnet subnet-0da163953b5f2df20 --query 'Instances[].[InstanceId]' --output text)
+instance_id=$(aws ec2 run-instances --launch-template LaunchTemplateId=lt-0376ef5c4d666d6df --subnet subnet-0da163953b5f2df20 --query 'Instances[].[InstanceId]' --output text)
 echo $instance_id
 aws ec2 wait instance-status-ok --instance-ids $instance_id
 echo "...finished"
