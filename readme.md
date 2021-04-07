@@ -1,6 +1,6 @@
 # Overview
 
-[![Build Status](https://travis-ci.org/frumania/aws-sap-scripts.svg?branch=master)](https://travis-ci.org/frumania/aws-sap-scripts)
+[![Build Status](https://travis-ci.com/frumania/aws-sap-scripts.svg?branch=master)](https://travis-ci.com/frumania/aws-sap-scripts)
 
 Scripts to install/deploy various SAP components & tools
 - SAP GUI (Windows) *
