@@ -1,7 +1,7 @@
- echo "START"
+echo "START"
 $ErrorActionPreference = "Stop"
 
-$mypath = "c:/eclipse2020-06"
+$mypath = "c:/eclipse2020-12"
 If(!(test-path $mypath))
 {
       New-Item -ItemType Directory -Force -Path $mypath
@@ -9,38 +9,29 @@ If(!(test-path $mypath))
 
 cd $mypath
 
-echo "Downloading Amazon Corretto 8..."
-$url = "https://corretto.aws/downloads/latest/amazon-corretto-8-x64-windows-jdk.msi"
-$output = $mypath+"/amazon-corretto-8-x64-windows-jdk.msi"
+echo "Downloading Amazon Corretto 11..."
+$url = "https://corretto.aws/downloads/latest/amazon-corretto-11-x64-windows-jdk.msi"
+$output = $mypath+"/amazon-corretto-11-x64-windows-jdk.msi"
 (New-Object System.Net.WebClient).DownloadFile($url, $output)
 echo "...done!"
-echo "Installing Amazon Corretto 8..."
-.\amazon-corretto-8-x64-windows-jdk.msi /qn /L* "install.log" /norestart ALLUSERS=2
-echo "...done!"
-
-echo "Sleep 60s"
-
-sleep 60
-
-echo "Set JAVA HOME..."
-[Environment]::SetEnvironmentVariable("JAVA_HOME", "C:\Program Files\Amazon Corretto\jre8")
-[System.Environment]::SetEnvironmentVariable("PATH", $Env:Path + ";$($Env:JAVA_HOME)\bin", "User")
+echo "Installing Amazon Corretto 11..."
+.\amazon-corretto-11-x64-windows-jdk.msi /qn /L* "install.log" /norestart ALLUSERS=2
 echo "...done!"
 
 echo "Downloading Eclipse..."
-$url = "http://ftp.fau.de/eclipse/technology/epp/downloads/release/2020-06/R/eclipse-java-2020-06-R-win32-x86_64.zip"
-$output = $mypath+"/eclipse-java-2020-06-R-win32-x86_64.zip"
+$url = "https://mirrors.dotsrc.org/eclipse//technology/epp/downloads/release/2020-12/R/eclipse-java-2020-12-R-win32-x86_64.zip"
+$output = $mypath+"/eclipse-java-2020-12-R-win32-x86_64.zip"
 (New-Object System.Net.WebClient).DownloadFile($url, $output)
 echo "...done!"
 echo "Installing Eclipse..."
-Expand-Archive -Path eclipse-java-2020-06-R-win32-x86_64.zip -DestinationPath $mypath
+Expand-Archive -Path eclipse-java-2020-12-R-win32-x86_64.zip -DestinationPath $mypath
 echo "...done!"
 
 cd eclipse
 
 dir
 
-echo 'Start-Process -FilePath c:/eclipse2020-06/eclipse/eclipse.exe -ArgumentList "-nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository https://tools.hana.ondemand.com/2020-06,http://download.eclipse.org/releases/2020-06 -installIU HANATools"' > C:\Users\Public\Desktop\Install_SAP_HANA_STUDIO_Plugins.ps1
+Start-Process -FilePath c:/eclipse2020-12/eclipse/eclipse.exe -ArgumentList "-nosplash -consoleLog -application org.eclipse.equinox.p2.director -repository https://tools.hana.ondemand.com/2020-12,http://download.eclipse.org/releases/2020-12 -installIU HANATools"
 
 echo "Create Shortcut..."
 
@@ -51,4 +42,5 @@ $Shortcut.Save()
 
 echo "...done!"
 
-echo "ALL DONE"
+Write-Host -NoNewLine 'Installing SAP HANA Tools for Eclipse, please wait for new window to close! Press any key to continue...';
+$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
