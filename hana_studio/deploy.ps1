@@ -42,5 +42,5 @@ $Shortcut.Save()
 
 echo "...done!"
 
-echo "Installing SAP HANA Tools for Eclipse, please wait for new window to close! Closing here in 10 seconds!
+echo "Installing SAP HANA Tools for Eclipse, please wait for new window to close! Closing here in 10 seconds!"
 sleep 10
