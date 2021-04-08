@@ -42,5 +42,5 @@ $Shortcut.Save()
 
 echo "...done!"
 
-Write-Host -NoNewLine 'Installing SAP HANA Tools for Eclipse, please wait for new window to close! Press any key to continue...';
-$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
+echo "Installing SAP HANA Tools for Eclipse, please wait for new window to close! Closing here in 10 seconds!
+sleep 10
