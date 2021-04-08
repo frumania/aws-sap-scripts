@@ -7,7 +7,7 @@ Scripts to install/deploy various SAP components & tools
 - SAP HANA Studio for Eclipse 2020-06 (Windows)
 - SAP Cloud Connector 2.12.0.1 (SLES)
 - SAP HANA Smart Data Integration - AWS Athena (SLES)
-- SAP HANA Cockpit (SLES) *
+- SAP HANA Cockpit (SLES) * (deprecated)
 
 \* requires SAP software download
 
