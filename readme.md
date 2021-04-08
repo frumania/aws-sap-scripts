@@ -5,8 +5,9 @@
 Scripts to install/deploy various SAP components & tools
 - SAP GUI (Windows) *
 - SAP HANA Studio for Eclipse 2020-06 (Windows)
-
-NO LONGER MAINTAINED
+  
+  
+NO LONGER MAINTAINED:
 - SAP Cloud Connector 2.12.0.1 (SLES)
 - SAP HANA Smart Data Integration - AWS Athena (SLES)
 - SAP HANA Cockpit (SLES) *
